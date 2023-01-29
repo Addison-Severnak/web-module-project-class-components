@@ -1,33 +1,42 @@
 import React from 'react';
-import { ReactDOM } from 'react';
 
-const todos = [
-  {
-    name: 'Organize Garage',
-    id: 1528817077286, // could look different, you could use a timestamp to generate it
-    completed: false
-  },
-  {
-    name: 'Bake Cookies',
-    id: 1528817084358,
-    completed: false
-  }
-];
+import Todo from './Todo';
+import TodoList from './TodoList';
 
 export default class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todos: todos
+      todos: [
+        {
+          name: 'Organize Garage',
+          id: 1528817077286, // could look different, you could use a timestamp to generate it
+          completed: false
+        },
+        {
+          name: 'Bake Cookies',
+          id: 1528817084358,
+          completed: false
+        }
+      ]
     }
-  };
+  }
+
+
 
   render() {
+    const { todos } = this.state;
+
     return (
       <div>
-        <div>
-          <h1>Todo App</h1>
-        </div>
+        <h1>Todo App</h1>
+
+        <TodoList todos={todos} />
+
+        <form>
+
+        </form>
+
         <button>Hide Completed</button>
       </div>
     )
